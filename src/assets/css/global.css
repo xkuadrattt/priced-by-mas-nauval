@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+  background: conic-gradient(#4456f8, #53acff, #573dfb, #5b41fb, #4456f8);
+  background-size: cover;
+}
