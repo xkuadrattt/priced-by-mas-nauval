@@ -21,7 +21,6 @@ const Pricing = function () {
   const subs = "/month";
 
   const sectionPrice = data.map(function (price) {
-    console.log(price);
     return (
       <div
         key={price.pricing}
@@ -36,7 +35,7 @@ const Pricing = function () {
             </span>
             {price.pricing == "custom" ? "" : subs}
           </p>
-          <p className={`text-[${fontColor}]/60`}>{price.desc}</p>
+          <p className={`text-[${fontColor}]/60 md:h-[5rem]`}>{price.desc}</p>
         </div>
         <button className="block py-2 w-full text-white bg-primary hover:bg-primary/95 rounded-lg">
           Get Started
@@ -46,9 +45,10 @@ const Pricing = function () {
           <ul
             className={`[&>li]:text-[#000000]/60 [&>li]:my-[.5rem] [&>li]:py-[0.25rem] [&>li]:px-[1.75rem]`}
           >
-            {price.features.map(function ({ availabe, content }) {
+            {price.features.map(function ({ availabe, content }, i) {
               return (
                 <li
+                  key={i}
                   style={{
                     background: `url(${
                       availabe ? listStyleOk : listStyleNotOk
@@ -69,7 +69,7 @@ const Pricing = function () {
 
   return (
     <section
-      className={`flex flex-col md:flex-row gap-[2rem] pb-[3rem] mt-[4rem] ${roundedEl.firstChild} ${roundedEl.secondChild} ${roundedEl.thirdChild} relative [&>div]:relative`}
+      className={`flex flex-col md:flex-row gap-[2rem] pb-[3rem] mt-[4rem] [&>div:first-child]:mb-[3rem] [&>div:first-child]:md:mb-0  ${roundedEl.firstChild} ${roundedEl.secondChild} ${roundedEl.thirdChild} relative [&>div]:relative`}
     >
       {sectionPrice}
     </section>
